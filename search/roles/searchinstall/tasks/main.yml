@@ -1,0 +1,12 @@
+---
+# tasks file for searchinstall
+      - copy:
+          src: ./../files/searchinstall.sh
+          dest: /home/searchinstall.sh
+      
+      - name: setting permission
+        file: dest=/home/searchinstall.sh mode=a+x
+      
+      - name: executing the script on remote machine
+        shell: sh /home/searchinstall.sh {{ ip1 }} {{ ip2 }} {{ ip3 }} {{ id1 }} {{ id2 }} {{ id3 }}
+        ignore_errors: yes
